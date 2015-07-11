@@ -1,26 +1,58 @@
 .pagination {
-  text-align: center;
+  margin: 1em 0;
 
-  li {
+  ol {
     list-style-type: none;
-    display: inline-block;
-    margin-right: 1em;
-  }
+    padding: 0;
+    text-align: center;
 
-  a,.active {
-      background-color: $dark-gray;
-      border-radius: 0.3em;
-      font-weight: 600;
-      font-size: 0.74rem;
-      padding: 0 0.5em;
-      color: white !important;
-      text-decoration: none !important;
-      &:hover {
-        color: $lightest-gray;
+    li {
+      display: inline-block;
+      margin: 0 0.25em;
+
+      a, em {
+        display: inline-block;
+        padding: 0.625em 1em;
+      }
+
+      a {
+        text-decoration: none;
+        //color: $black;
+        border: 1px solid $lighter-gray;
+      }
+
+      a:hover, a:active {
+        color: $white;
+        background-color: $blue;
+        border-color: $white;
+      }
+
+      em {
+        color: $secondary-color;
+        font-weight: bold;
+        font-style: normal;
+        padding: 0.625em 0.5em;
       }
     }
+  }
 
-  .active {
-      background-color: $blue;
+  .next {
+    margin: 0 0 0 0.75em;
+
+    a::after {
+      content: "\f178";
+      font-family: FontAwesome;
+      margin-left: 0.5em;
+    }
+  }
+
+  .prev {
+    margin: 0 0.75em 0 0;
+
+    a::before {
+      content: "\f177";
+      font-family: FontAwesome;
+      margin-right: 0.5em;
+    }
   }
 }

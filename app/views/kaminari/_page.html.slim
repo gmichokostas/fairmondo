@@ -9,5 +9,9 @@
 - unless page.first? || page.last?
   li*{:class => "#{'active' if page.current?}"}
     - link_attributes ||= {}
-    - link_attributes.deep_merge!(data: (remote ? { remote: true} : { push: true } ), :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil)
-    = link_to_unless page.current?, page, url, link_attributes
+    - link_attributes.deep_merge!(data: (remote ? { remote: true} : { push: true } ),
+      :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil)
+    - if page.current?
+      em= page
+    - else
+      = link_to page, url, link_attributes

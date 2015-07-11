@@ -8,4 +8,7 @@
 li.first*{:class => "#{'active' if current_page.first?}"}
   - link_attributes ||= {}
   - link_attributes.deep_merge!(data: (remote ? { remote: true} : { push: true } ))
-  = link_to_unless current_page.first?, "1", url, link_attributes
+  - if current_page.first?
+    em 1
+  - else
+    = link_to "1", url, link_attributes

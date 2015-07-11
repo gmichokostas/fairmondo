@@ -3,7 +3,7 @@ de:
   views:
     pagination:
       next:
-        "Weiter"
+        "vor"
       previous:
-        "Zurück"
+        "zurück"
       truncate: "..."
