@@ -8,7 +8,6 @@
 = paginator.render do
   nav.pagination
     ol
-      == prev_page_tag unless current_page.first?
       == first_page_tag
       - each_page do |page|
         - if kaminari_display_page? page

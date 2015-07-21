@@ -8,4 +8,6 @@
 li.prev
   - link_attributes ||= {}
   - link_attributes.deep_merge!(rel: 'prev', data: (remote ? { remote: true} : { push: true } ))
-  = link_to_unless current_page.first?, raw(t 'views.pagination.previous'), url, link_attributes
+  = link_to_unless current_page.first?,
+    content_tag(:span, raw(t 'views.pagination.previous')),
+    url, link_attributes
