@@ -32,7 +32,8 @@ class ProcessMassUploadWorker
     mass_upload.start
     row_count = 0
     begin
-      CSV.foreach(mass_upload.file.path, encoding: MassUpload::Checks.get_csv_encoding(mass_upload.file.path), col_sep: ';', quote_char: '"', headers: true) do |row|
+      CSV.foreach(mass_upload.file.path,
+                  encoding: MassUpload::Checks.get_csv_encoding(mass_upload.file.path), col_sep: ';', quote_char: '"', headers: true) do |row|
         row_count += 1
         row.delete '€' # delete encoding column
 
@@ -47,6 +48,7 @@ class ProcessMassUploadWorker
 
       mass_upload.update_attribute(:row_count, row_count)
 
+    # What happens with these errors? User seems to get no feedback.
     rescue ArgumentError
       mass_upload.error(I18n.t('mass_uploads.errors.wrong_encoding'))
     rescue CSV::MalformedCSVError

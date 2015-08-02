@@ -47,6 +47,8 @@
         span.sprite_helper title='Wenn Du einen neuen Artikel einstellst, kannst Du alle Angaben als Vorlage speichen.'
       = render "article_templates/table",
         article_templates: resource.article_templates
+
+    / Mass uploads
     - if resource.is_a?(LegalEntity) && resource.mass_uploads.any?
       = accordion_item 'my_mass_uploads' do
         = render 'mass_uploads/table'
