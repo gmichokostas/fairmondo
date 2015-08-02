@@ -31,9 +31,11 @@ class MassUploadArticle < ActiveRecord::Base
   end
 
   def process article_attributes
-    binding.pry
-
     @original_attributes = article_attributes
+
+    # temporarily necessary because old code expects strings
+    @original_attributes.stringify_keys!
+
     prepare_attributes
     prepare_article
     self.with_lock do
@@ -90,8 +92,13 @@ class MassUploadArticle < ActiveRecord::Base
     @article_attributes.slice!(*MassUpload.article_attributes)
   end
 
-  def prepare_categories
-    @article_attributes['category_ids'] = @article_attributes.delete('categories').split(',') if @article_attributes['categories']
+  def prepare_categories#
+    if @article_attributes['categories']
+      @article_attributes['categories'] = @article_attributes['categories'].to_s
+      @article_attributes['category_ids'] = @article_attributes
+        .delete('categories')
+        .split(',')
+    end
   end
 
   def prepare_questionaires
