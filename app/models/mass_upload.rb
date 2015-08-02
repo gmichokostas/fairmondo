@@ -70,7 +70,8 @@ class MassUpload < ActiveRecord::Base
                            'class' => ProcessMassUploadWorker,
                            'args' => [self.id])
     else
-      ProcessMassUploadWorker.perform_async(self.id)
+      #ProcessMassUploadWorker.perform_async(self.id)
+      ProcessMassUploadWorker.new.perform(self.id)
     end
   end
 

@@ -31,6 +31,8 @@ class MassUploadArticle < ActiveRecord::Base
   end
 
   def process article_attributes
+    binding.pry
+
     @original_attributes = article_attributes
     prepare_attributes
     prepare_article
