@@ -99,6 +99,7 @@ gem 'rack-rewrite' # Redirects
 gem 'json'
 gem 'nokogiri'
 gem 'prawn_rails' # pdf generation
+gem 'smarter_csv', '~> 1.1.0'
 
 # ---------- Monitoring ----------
 gem 'newrelic_rpm',  group: [:production, :staging]

@@ -601,6 +601,7 @@ GEM
       railties (>= 3.1, < 5.0)
       slim (~> 3.0)
     slop (3.6.0)
+    smarter_csv (1.1.0)
     sprite-factory (1.6.1)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -777,6 +778,7 @@ DEPENDENCIES
   simplecov-json
   sinatra (>= 1.3.0)
   slim-rails (>= 2.1.5)
+  smarter_csv (~> 1.1.0)
   sprite-factory
   sprockets
   sqlite3
@@ -789,3 +791,6 @@ DEPENDENCIES
   tinymce-rails-langs
   uglifier
   wiselinks
+
+BUNDLED WITH
+   1.10.4
