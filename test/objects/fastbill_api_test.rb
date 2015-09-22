@@ -1,5 +1,4 @@
 require_relative '../test_helper'
-include FastBillStubber
 
 describe FastbillAPI do
   describe 'methods' do

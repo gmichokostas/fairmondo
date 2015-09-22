@@ -154,6 +154,8 @@ group :test do
   gem 'colorize'
   gem 'fakeredis'
   gem 'fakeweb', '~> 1.3'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development, :test do
