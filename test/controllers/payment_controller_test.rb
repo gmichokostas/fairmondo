@@ -83,33 +83,43 @@ describe PaymentsController do
     end
 
     it 'should confirm payment when request contains "complete"' do
-      payment
-      post :ipn_notification, pay_key: '1234', status: 'COMPLETED'
-      payment.reload.state.must_equal 'confirmed'
+      VCR.use_cassette('paypal_complete') do
+        payment
+        post :ipn_notification, pay_key: '1234', status: 'COMPLETED'
+        payment.reload.state.must_equal 'confirmed'
+      end
     end
 
     # TODO find out why this test passes and coverall thinks corresponding line is not touched
-    it "should send email for each business transaction in payment's line item group if  bike_courier is selected" do
-      payment
-      payment.line_item_group.business_transactions.select { |bt| bt.selected_payment == 'paypal' }.first.update_attribute(:selected_transport, :bike_courier)
-      CartMailer.any_instance.expects(:courier_notification).with(payment.line_item_group.business_transactions.first)
-      post :ipn_notification, pay_key: '1234', status: 'COMPLETED'
+    it "should send email for each business transaction in payment's line item group if bike_courier is selected" do
+      VCR.use_cassette('paypal_bike_courier') do
+        payment
+        payment.line_item_group.business_transactions.select { |bt| bt.selected_payment == 'paypal' }.first.update_attribute(:selected_transport, :bike_courier)
+        CartMailer.any_instance.expects(:courier_notification).with(payment.line_item_group.business_transactions.first)
+        post :ipn_notification, pay_key: '1234', status: 'COMPLETED'
+      end
     end
 
     it 'should throw an error, when payment_status is "Invalid"' do
-      payment
-      post :ipn_notification, pay_key: '1234', status: 'Invalid'
-      payment.reload.state.must_equal 'errored'
+      VCR.use_cassette('paypal_invalid') do
+        payment
+        post :ipn_notification, pay_key: '1234', status: 'Invalid'
+        payment.reload.state.must_equal 'errored'
+      end
     end
 
     it 'should throw ActiveRecord::RecordNotFound if no payment is found' do
-      assert_raises(ActiveRecord::RecordNotFound) { post :ipn_notification, pay_key: 'ashfakjsdf', status: 'Invalid' }
+      VCR.use_cassette('paypal_no_payment') do
+        assert_raises(ActiveRecord::RecordNotFound) { post :ipn_notification, pay_key: 'ashfakjsdf', status: 'Invalid' }
+      end
     end
 
     it 'should throw an error if ipn is not verified' do
-      PaypalAdaptive::IpnNotification.any_instance.stubs(:verified?).returns(false)
-      exception = -> { post :ipn_notification, pay_key: 'ashfakjsdf', status: 'Invalid' }.must_raise(StandardError)
-      exception.message.must_equal 'ipn could not be verified'
+      VCR.use_cassette('paypal_not_verified') do
+        PaypalAdaptive::IpnNotification.any_instance.stubs(:verified?).returns(false)
+        exception = -> { post :ipn_notification, pay_key: 'ashfakjsdf', status: 'Invalid' }.must_raise(StandardError)
+        exception.message.must_equal 'ipn could not be verified'
+      end
     end
   end
 end

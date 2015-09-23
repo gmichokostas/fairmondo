@@ -109,7 +109,5 @@ DatabaseCleaner.strategy = :transaction
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr'
   c.hook_into :webmock
-  c.ignore_request do |request|
-    URI(request.uri).port == 9200
-  end
+  c.ignore_localhost = true
 end
