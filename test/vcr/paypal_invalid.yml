@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.sandbox.paypal.com/cgi-bin/webscr
+    body:
+      encoding: UTF-8
+      string: cmd=_notify-validate&pay_key=1234&status=Invalid
+    headers:
+      Accept-Encoding:
+      - identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 13:07:44 GMT
+      Server:
+      - Apache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Set-Cookie:
+      - Apache=10.72.108.11.1443013664515121; path=/; expires=Fri, 15-Sep-45 13:07:44
+        GMT
+      - Apache=10.72.128.11.1443013664498304; path=/; expires=Fri, 15-Sep-45 13:07:44
+        GMT
+      - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+      - X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D547619414;
+        domain=.paypal.com; path=/; Secure; HttpOnly
+      - c9MWDuvPtT9GIMyPc3jwol1VSlO=jRHfyZf3908eAEklkWNImi_dYdjWZsME7OfHxJ7tZrgkicbHRzKsuafrSRDGDwECIGLkXmzeGc56N4DX-Z59UsNFbQiQ5pYQ3yYpaMkX33H-t_QgPQi14Lu5gaUJ_5qJZ5NiZCIggwV_uXpvWJ3sIPUwFwHcaJnMpF2aLBQACo7Wob92LuVXMFFg5hVjFw6_v-UdgcpbNZr7nKmJ1Fr59bY6AC-WIuM_Id29PyevPhbhc5M1_3nGwd_a_fgtFwl2kQVjNOoLb5U0tD7wl1f4APi_l2O4sArsSq8TSvxxk4eSSEgKetiyDxfBsJD_CH44PDJdaa_L2bhXvtnYLL7A_JgxDPPQpunwJqEhVcou9YzBkJseCxDRMhrXG0uKEoNV1ktvTyejjGLWJKETOpOId8kdIhOqJDTbvnODYGtzYTwoKrX_iuQwUNgRpB4;
+        domain=.paypal.com; path=/; Secure; HttpOnly
+      - cookie_check=yes; expires=Sat, 20-Sep-2025 13:07:44 GMT; domain=.paypal.com;
+        path=/; Secure; HttpOnly
+      - navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+      - navlns=0.0; expires=Fri, 22-Sep-2017 13:07:44 GMT; domain=.paypal.com; path=/;
+        Secure; HttpOnly
+      Vary:
+      - Accept-Encoding,User-Agent
+      X-Cnection:
+      - close
+      Paypal-Debug-Id:
+      - a2d4360679b3a
+      Strict-Transport-Security:
+      - max-age=14400
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: INVALID
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 13:10:29 GMT
+recorded_with: VCR 2.9.3

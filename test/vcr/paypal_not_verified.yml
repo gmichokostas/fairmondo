@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.sandbox.paypal.com/cgi-bin/webscr
+    body:
+      encoding: UTF-8
+      string: cmd=_notify-validate&pay_key=ashfakjsdf&status=Invalid
+    headers:
+      Accept-Encoding:
+      - identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 13:09:38 GMT
+      Server:
+      - Apache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Set-Cookie:
+      - Apache=10.72.108.11.1443013778526805; path=/; expires=Fri, 15-Sep-45 13:09:38
+        GMT
+      - Apache=10.72.128.11.1443013778500282; path=/; expires=Fri, 15-Sep-45 13:09:38
+        GMT
+      - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+      - X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D2460222038;
+        domain=.paypal.com; path=/; Secure; HttpOnly
+      - c9MWDuvPtT9GIMyPc3jwol1VSlO=yjNCrbTEM99oniexkfM_ADO77IWHVbwpON7svzCTNxJAqKsRtvsmfQd3P6m9T66Bk_VQbLqnY8HTMuNkSqHPHP4-Lf43ugaG9V-ym0Zc3Ex747hcmWOsVbWfJhyd0SFd9Fvc3iGX4Q_UBVuZpFRpEKpL7MbN-hkvY_g3AlQffHbjO8HeKPI6VTHnDt6f7KrgkJ9WcGoGI19zvIm6-sO1LZ0zRw03hwuREIIEaOG8I9DsvnpBYTiXnLSIZYdJqHTomg57e92fB-uNss0oMQSvgEyJ13wopwQ5tRVcOMwBgDQUd9ECLoYdg1mGWIBgf_IMucTAZiP8xX9kKu26YDw74VEGhMVXR2BLiV-JKjuBwP9yOUK5izGGTJRr1TOv0u43lN8TeEo7GcFXNNurjZmWLPvA9qeWyAAHiWlwhkhL_-GqXigGBWsLakqe3Zu;
+        domain=.paypal.com; path=/; Secure; HttpOnly
+      - cookie_check=yes; expires=Sat, 20-Sep-2025 13:09:38 GMT; domain=.paypal.com;
+        path=/; Secure; HttpOnly
+      - navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+      - navlns=0.0; expires=Fri, 22-Sep-2017 13:09:38 GMT; domain=.paypal.com; path=/;
+        Secure; HttpOnly
+      Vary:
+      - Accept-Encoding,User-Agent
+      X-Cnection:
+      - close
+      Paypal-Debug-Id:
+      - 167e8acb7a303
+      Strict-Transport-Security:
+      - max-age=14400
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: INVALID
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 13:12:23 GMT
+recorded_with: VCR 2.9.3

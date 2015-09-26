@@ -1,0 +1,26 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://info.fairmondo.de/?feed=rss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers: {}
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" ?><rss version="2.0"></rss>
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 12:56:22 GMT
+recorded_with: VCR 2.9.3
