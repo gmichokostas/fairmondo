@@ -1,5 +1,4 @@
 # Configuration files
-config/secrets.yml
 # config/database.yml -> needed for travis-ci
 config/environments/development.rb
 public/system
