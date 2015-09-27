@@ -194,6 +194,8 @@ group :development, :test do
   gem 'rubocop' # style enforcement
 
   gem 'bullet' # Notify about n+1 queries
+
+  gem 'httplog'
 end
 
 group :development, :test, :staging do

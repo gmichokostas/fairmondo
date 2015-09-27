@@ -282,6 +282,7 @@ GEM
     http_parser.rb (0.6.0)
     httpi (2.3.0)
       rack
+    httplog (0.2.11)
     i18n (0.7.0)
     i18n-js (3.0.0.rc8)
       i18n (~> 0.6)
@@ -717,6 +718,7 @@ DEPENDENCIES
   guard-rubocop
   hirb
   hogan_assets
+  httplog
   i18n-js (~> 3.0.0.rc8)
   i18n-tasks (~> 0.8.3)
   ibanomat

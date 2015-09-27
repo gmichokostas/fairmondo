@@ -1,36 +1,36 @@
 # Monkey patch used Fastbill::Automatic functions to do nothing
-module Fastbill
-  module Automatic
-    module Services
-      module Create
-        module ClassMethods
-          def create *whatever
-            self.name.constantize.new(:"#{self.name.split('::').last.downcase}_id" => 1)
-          end
-        end
-      end
-      module Update
-        module ClassMethods
-          def update_attributes *whatever
-          end
-        end
-      end
-      module Setusagedata
-        module ClassMethods
-          def setusagedata *whatever
-          end
-        end
-      end
-      module Get
-        module ClassMethods
-          def get *whatever
-            [self.name.constantize.new(:"#{self.name.split('::').last.downcase}_id" => 1)]
-          end
-        end
-      end
-    end
-  end
-end
+# module Fastbill
+#   module Automatic
+#     module Services
+#       module Create
+#         module ClassMethods
+#           def create *whatever
+#             self.name.constantize.new(:"#{self.name.split('::').last.downcase}_id" => 1)
+#           end
+#         end
+#       end
+#       module Update
+#         module ClassMethods
+#           def update_attributes *whatever
+#           end
+#         end
+#       end
+#       module Setusagedata
+#         module ClassMethods
+#           def setusagedata *whatever
+#           end
+#         end
+#       end
+#       module Get
+#         module ClassMethods
+#           def get *whatever
+#             [self.name.constantize.new(:"#{self.name.split('::').last.downcase}_id" => 1)]
+#           end
+#         end
+#       end
+#     end
+#   end
+# end
 
 module FastBillStubber
   def stub_fastbill
