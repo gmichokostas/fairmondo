@@ -30,6 +30,10 @@ class FastbillAPI
     end
   end
 
+  def has_profile?
+    @seller.fastbill_id != nil
+  end
+
   def update_profile user
     customer = Fastbill::Automatic::Customer.get(customer_id: user.fastbill_id).first
     if customer
@@ -38,8 +42,6 @@ class FastbillAPI
       customer.update_attributes(attributes)
     end
   end
-
-  private
 
   def fastbill_create_customer
     unless @seller.fastbill_id
@@ -51,6 +53,20 @@ class FastbillAPI
       end
     end
   end
+
+  def fastbill_delete_customer
+    if @seller.fastbill_id
+      User.observers.disable :user_observer do
+        Fastbill::Automatic::Customer.delete(@seller.fastbill_id.to_s)
+        @seller.update_attribute :fastbill_id, nil
+        @seller.update_attribute :fastbill_subscription_id, nil
+      end
+    end
+  end
+
+
+
+  private
 
   def attributes_for(user)
     {

@@ -107,9 +107,9 @@ $suite_passing = true
 DatabaseCleaner.strategy = :transaction
 
 # VCR config
-#VCR.configure do |c|
-#  c.cassette_library_dir = 'test/vcr'
-#  c.hook_into :webmock
-#  c.ignore_localhost = true
-#  c.allow_http_connections_when_no_cassette = true
-#end
+VCR.configure do |c|
+ c.cassette_library_dir = 'test/vcr'
+ c.hook_into :webmock
+ c.ignore_localhost = true
+ c.allow_http_connections_when_no_cassette = true
+end

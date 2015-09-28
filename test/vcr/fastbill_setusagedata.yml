@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.create","data":{"customer_type":"business","organization":"Cummerata
+        Group","salutation":"Frau","first_name":"Mae","last_name":"Dach","address":"Smithstr.
+        176","address_2":"Apt. 407","zipcode":"10783","city":"Drensteinfurt","country_code":"DE","language_code":"DE","email":"federico_moen@bartolettijakubowski.co.uk","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"Chloe
+        Ullrich","bank_code":"19077692","bank_account_number":"38437109","bank_account_owner":"Ellen
+        Kessler","customer_number":1}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 27 Sep 2015 19:56:30 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 27 Sep 2015 19:56:30 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=evq368qgv23vgfejeg8mlq6th6; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '530'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_TYPE":"business","ORGANIZATION":"Cummerata
+        Group","SALUTATION":"Frau","FIRST_NAME":"Mae","LAST_NAME":"Dach","ADDRESS":"Smithstr.
+        176","ADDRESS_2":"Apt. 407","ZIPCODE":"10783","CITY":"Drensteinfurt","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"federico_moen@bartolettijakubowski.co.uk","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"Chloe
+        Ullrich","BANK_CODE":"19077692","BANK_ACCOUNT_NUMBER":"38437109","BANK_ACCOUNT_OWNER":"Ellen
+        Kessler","CUSTOMER_NUMBER":1}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":978584,"HASH":"760c6ac3a07737be34b05b35e2581895","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/760c6ac3a07737be34b05b35e2581895","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/760c6ac3a07737be34b05b35e2581895"}}'
+    http_version: 
+  recorded_at: Sun, 27 Sep 2015 19:56:31 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"subscription.create","data":{"article_number":"10","customer_id":978584,"next_event":"2015-09-30
+        23:59:59"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 27 Sep 2015 19:56:30 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 27 Sep 2015 19:56:30 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=d79epoo72dm9qdhmv4fr02s2f3; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '194'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"subscription.create","DATA":{"ARTICLE_NUMBER":"10","CUSTOMER_ID":978584,"NEXT_EVENT":"2015-09-30
+        23:59:59"}},"RESPONSE":{"ERRORS":["missing \/ invalid field: ARTICLE_NUMBER","missing
+        \/ invalid field: CUSTOMER_ID"]}}'
+    http_version: 
+  recorded_at: Sun, 27 Sep 2015 19:56:31 GMT
+recorded_with: VCR 2.9.3
