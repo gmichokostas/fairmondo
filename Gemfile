@@ -195,7 +195,7 @@ group :development, :test do
 
   gem 'bullet' # Notify about n+1 queries
 
-  gem 'httplog'
+  #gem 'httplog'
 end
 
 group :development, :test, :staging do

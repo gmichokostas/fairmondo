@@ -56,6 +56,14 @@ FactoryGirl.define do
 
     payment_details 'payment_details'
 
+    factory :fixture_article do
+      title 'Test article'
+      content 'This is a nice test article.'
+      condition 'new'
+      price_cents 10000
+      vat 19
+    end
+
     factory :article_template do
       article_template_name { Faker::Lorem.words(rand(3) + 2) * ' ' }
       state :template

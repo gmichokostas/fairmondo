@@ -39,6 +39,10 @@ FactoryGirl.define do
     discount_value_cents 0
     quantity_bought 1
 
+    factory :fixture_business_transaction do
+      article { FactoryGirl.create :fixture_article }
+    end
+
     trait :incomplete do
       shipping_address nil
     end

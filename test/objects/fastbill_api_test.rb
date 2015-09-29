@@ -7,27 +7,21 @@ require_relative '../test_helper'
 
 
 describe FastbillAPI do
-  let(:seller) { LegalEntity.create(nickname: 'test', slug: 'test', email: 'test@test.com',
-      password: 'password') }
-  let(:article) { Article.create(user_id: seller.id, slug: 'test-article',
-    title: 'Test article', content: 'This is a nice test article.',
-    condition: 'new', category_ids: [1], payment_cash: true,
-    transport_pickup: true) }
-  let(:line_item_group) { LineItemGroup.create(seller: seller) }
-  let(:business_transaction) { BusinessTransaction.create(article_id: article.id,
-    selected_transport: article.selectable_transports[0],
-    selected_payment: article.selectable_payments[0],
-    line_item_group_id: line_item_group.id) }
+
+  let(:seller) { FactoryGirl.create(:fixture_legal_entity, :paypal_data) }
+  let(:business_transaction) { BusinessTransaction.new }
+  let(:db_business_transaction) { FactoryGirl.create(:business_transaction, seller: seller) }
 
   describe 'customer administration' do
     # not perfect
     it 'should be able to create and delete a customer from Fastbill' do
+      l = FactoryGirl.create(:legal_entity_with_fixture_address)
+      p l.standard_address
       VCR.use_cassette('fastbill/create_and_delete_customer') do
-        api = FastbillAPI.new business_transaction
+        api = FastbillAPI.new db_business_transaction
         refute api.has_profile?
         api.fastbill_create_customer
         assert api.has_profile?
-        puts db_business_transaction.seller.fastbill_id
         api.fastbill_delete_customer
         refute api.has_profile?
       end
