@@ -113,3 +113,14 @@ VCR.configure do |c|
  c.ignore_localhost = true
  c.allow_http_connections_when_no_cassette = true
 end
+
+# Lint FactoryGirl factories before test suite
+# At the moment, 6 factories are invalid, so the suite will fail
+# class Minitest::Test
+#   begin
+#     DatabaseCleaner.start
+#     FactoryGirl.lint
+#   ensure
+#     DatabaseCleaner.clean
+#   end
+# end
