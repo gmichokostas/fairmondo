@@ -83,32 +83,31 @@ FactoryGirl.define do
     end
 
     factory :private_user, class: 'PrivateUser' do
+      factory :incomplete_user do
+        transient do
+          create_standard_address false
+        end
+      end
     end
 
     factory :legal_entity, class: 'LegalEntity' do
-    end
-
-    # Doesn't fucking work, Faker address is used
-    factory :legal_entity_with_fixture_address do
-      standard_address { FactoryGirl.create :address, :fixture_address }
-    end
-
-    factory :fixture_legal_entity do
-      email 'test@test.com'
-      password 'password'
-      nickname 'testuser'
-      standard_address { FactoryGirl.create :address, :fixture_address }
-      bank_code '50010517'
-      bank_account_number '0648489890'
-      bank_account_owner 'Max Mustermann'
-      bank_name 'GLS-Bank'
-      iban 'DE12500105170648489890'
-      bic 'GENODEM1GLS'
-    end
-
-    factory :incomplete_user, class: 'PrivateUser' do
-      transient do
+      factory :legal_entity_with_fixture_address do
         create_standard_address false
+        standard_address { FactoryGirl.create :fixture_address }
+      end
+
+      factory :fixture_legal_entity do
+        email 'test@test.com'
+        password 'password'
+        nickname 'testuser'
+        create_standard_address false
+        standard_address { FactoryGirl.create :fixture_address }
+        bank_code '50010517'
+        bank_account_number '0648489890'
+        bank_account_owner 'Max Mustermann'
+        bank_name 'GLS-Bank'
+        iban 'DE12500105170648489890'
+        bic 'GENODEM1GLS'
       end
     end
 

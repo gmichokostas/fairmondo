@@ -5,9 +5,10 @@ http_interactions:
     uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
     body:
       encoding: UTF-8
-      string: '{"service":"customer.create","data":{"customer_type":"consumer","organization":"testuser","salutation":"Herr","first_name":"Tyrique","last_name":"Schoen","address":"Xavierstr.
-        35","address_2":"Suite 971","zipcode":"10557","city":"Putlitz","country_code":"DE","language_code":"DE","email":"test@test.com","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"GLS-Bank","bank_code":"50010517","bank_account_number":"0648489890","bank_account_owner":"Max
-        Mustermann","customer_number":2}}'
+      string: '{"service":"customer.create","data":{"customer_type":"business","organization":"Goldene
+        Gans gGmbH","salutation":"Herr","first_name":"Hans","last_name":"Gutmut","address":"Dorfstr.
+        23","address_2":"Am Brunnen","zipcode":"10999","city":"Kleines Dorf","country_code":"DE","language_code":"DE","email":"test@test.com","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"GLS-Bank","bank_code":"50010517","bank_account_number":"0648489890","bank_account_owner":"Max
+        Mustermann","customer_number":4}}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -21,38 +22,39 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 28 Sep 2015 19:43:28 GMT
+      - Fri, 02 Oct 2015 20:34:11 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       Cache-Control:
       - no-store
       Last-Modified:
-      - Mon, 28 Sep 2015 19:43:28 GMT
+      - Fri, 02 Oct 2015 20:34:11 GMT
       P3p:
       - CP="CAO PSA OUR"
       Set-Cookie:
-      - FastBillSESSID=3cos7k52obtktdjaic35b05dd1; path=/
+      - FastBillSESSID=om57oan580cnk0fb24kg103mp1; path=/
       Vary:
       - Accept-Encoding
       Content-Length:
-      - '497'
+      - '510'
       Connection:
       - close
       Content-Type:
       - text/plain; charset=UTF-8
     body:
       encoding: ASCII-8BIT
-      string: '{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_TYPE":"consumer","ORGANIZATION":"testuser","SALUTATION":"Herr","FIRST_NAME":"Tyrique","LAST_NAME":"Schoen","ADDRESS":"Xavierstr.
-        35","ADDRESS_2":"Suite 971","ZIPCODE":"10557","CITY":"Putlitz","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"test@test.com","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"GLS-Bank","BANK_CODE":"50010517","BANK_ACCOUNT_NUMBER":"0648489890","BANK_ACCOUNT_OWNER":"Max
-        Mustermann","CUSTOMER_NUMBER":2}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":979588,"HASH":"0641719b0e93b77cdb1c489f2629bb11","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/0641719b0e93b77cdb1c489f2629bb11","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/0641719b0e93b77cdb1c489f2629bb11"}}'
+      string: '{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_TYPE":"business","ORGANIZATION":"Goldene
+        Gans gGmbH","SALUTATION":"Herr","FIRST_NAME":"Hans","LAST_NAME":"Gutmut","ADDRESS":"Dorfstr.
+        23","ADDRESS_2":"Am Brunnen","ZIPCODE":"10999","CITY":"Kleines Dorf","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"test@test.com","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"GLS-Bank","BANK_CODE":"50010517","BANK_ACCOUNT_NUMBER":"0648489890","BANK_ACCOUNT_OWNER":"Max
+        Mustermann","CUSTOMER_NUMBER":4}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":981786,"HASH":"f5be720a7a6618f06945c4a458c75975","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/f5be720a7a6618f06945c4a458c75975","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/f5be720a7a6618f06945c4a458c75975"}}'
     http_version: 
-  recorded_at: Mon, 28 Sep 2015 19:43:30 GMT
+  recorded_at: Fri, 02 Oct 2015 20:34:14 GMT
 - request:
     method: post
     uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
     body:
       encoding: UTF-8
-      string: '{"service":"customer.delete","data":{"customer_id":"979588"}}'
+      string: '{"service":"customer.delete","data":{"customer_id":"981786"}}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -66,28 +68,28 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 28 Sep 2015 19:43:29 GMT
+      - Fri, 02 Oct 2015 20:34:12 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       Cache-Control:
       - no-store
       Last-Modified:
-      - Mon, 28 Sep 2015 19:43:29 GMT
+      - Fri, 02 Oct 2015 20:34:12 GMT
       P3p:
       - CP="CAO PSA OUR"
       Set-Cookie:
-      - FastBillSESSID=1ar2iskg0sggqf8fg29e4k2a55; path=/
+      - FastBillSESSID=pia9rndb2s7qaliu0l4rgcpvt0; path=/
       Vary:
       - Accept-Encoding
       Content-Length:
-      - '114'
+      - '115'
       Connection:
       - close
       Content-Type:
       - text/plain; charset=UTF-8
     body:
       encoding: ASCII-8BIT
-      string: '{"REQUEST":{"SERVICE":"customer.delete","DATA":{"CUSTOMER_ID":"979588"}},"RESPONSE":{"STATUS":"success"}}'
+      string: '{"REQUEST":{"SERVICE":"customer.delete","DATA":{"CUSTOMER_ID":"981786"}},"RESPONSE":{"STATUS":"success"}}'
     http_version: 
-  recorded_at: Mon, 28 Sep 2015 19:43:31 GMT
+  recorded_at: Fri, 02 Oct 2015 20:34:15 GMT
 recorded_with: VCR 2.9.3

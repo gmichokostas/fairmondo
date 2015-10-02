@@ -16,7 +16,7 @@ describe DiscourseController do
 
   describe 'for a logged in user' do
     before do
-      @user = FactoryGirl.create(:user, email: 'test@test.com', nickname: 'samsam', create_standard_address: false)
+      @user = FactoryGirl.create(:incomplete_user, email: 'test@test.com', nickname: 'samsam')
       sign_in @user
     end
 

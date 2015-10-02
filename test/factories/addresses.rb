@@ -19,7 +19,7 @@ FactoryGirl.define do
       after(:create) { |address| FactoryGirl.create(:line_item_group, payment_address: address) }
     end
 
-    trait :fixture_address do
+    factory :fixture_address do
       title 'Herr'
       first_name 'Hans'
       last_name 'Gutmut'
