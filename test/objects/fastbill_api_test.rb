@@ -7,23 +7,38 @@ require_relative '../test_helper'
 
 
 describe FastbillAPI do
-
-  let(:seller) { FactoryGirl.create(:fixture_legal_entity, :paypal_data) }
+  let(:seller) { FactoryGirl.create(:legal_entity, :paypal_data) }
   let(:business_transaction) { BusinessTransaction.new }
   let(:db_business_transaction) { FactoryGirl.create(:business_transaction, seller: seller) }
 
   describe 'customer administration' do
-    # not perfect
+    # not perfect, result codes are needed from Fastbill, but are there any?
     it 'should be able to create and delete a customer from Fastbill' do
-      l = FactoryGirl.create(:legal_entity_with_fixture_address)
-      p l.standard_address
       VCR.use_cassette('fastbill/create_and_delete_customer') do
         api = FastbillAPI.new db_business_transaction
+
         refute api.has_profile?
         api.fastbill_create_customer
         assert api.has_profile?
         api.fastbill_delete_customer
         refute api.has_profile?
+      end
+    end
+  end
+
+  describe 'subscription administration' do
+    it 'should be able to create and delete a subscription from Fastbill' do
+      VCR.use_cassette('fastbill/create_and_delete_subscription') do
+        api = FastbillAPI.new db_business_transaction
+        api.fastbill_create_customer
+
+        refute api.has_subscription?
+        api.fastbill_create_subscription
+        assert api.has_subscription?
+        api.fastbill_cancel_subscription
+        refute api.has_subscription?
+
+        api.fastbill_delete_customer
       end
     end
   end

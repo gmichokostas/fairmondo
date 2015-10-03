@@ -34,6 +34,10 @@ class FastbillAPI
     @seller.fastbill_id != nil
   end
 
+  def has_subscription?
+    @seller.fastbill_subscription_id != nil
+  end
+
   def update_profile user
     customer = Fastbill::Automatic::Customer.get(customer_id: user.fastbill_id).first
     if customer
@@ -64,7 +68,29 @@ class FastbillAPI
     end
   end
 
+  # Why on earth does this do something with the user? It should not update
+  # the user at all, just return something.
+  def fastbill_create_subscription
+    unless @seller.fastbill_subscription_id
+      User.observers.disable :user_observer do
+        subscription = Fastbill::Automatic::Subscription.create(
+          article_number: '10',
+          customer_id: @seller.fastbill_id,
+          next_event: Time.now.end_of_month.strftime('%Y-%m-%d %H:%M:%S')
+        )
+        @seller.update_column :fastbill_subscription_id, subscription.subscription_id
+      end
+    end
+  end
 
+  def fastbill_cancel_subscription
+    if @seller.fastbill_subscription_id
+      User.observers.disable :user_observer do
+        Fastbill::Automatic::Subscription.cancel(@seller.fastbill_subscription_id.to_s)
+        @seller.update_column :fastbill_subscription_id, nil
+      end
+    end
+  end
 
   private
 
@@ -93,19 +119,6 @@ class FastbillAPI
       bank_account_number: user.bank_account_number,
       bank_account_owner: user.bank_account_owner
     }
-  end
-
-  def fastbill_create_subscription
-    unless @seller.fastbill_subscription_id
-      User.observers.disable :user_observer do
-        subscription = Fastbill::Automatic::Subscription.create(
-          article_number: '10',
-          customer_id: @seller.fastbill_id,
-          next_event: Time.now.end_of_month.strftime('%Y-%m-%d %H:%M:%S')
-        )
-        @seller.update_column :fastbill_subscription_id, subscription.subscription_id
-      end
-    end
   end
 
   [:fee, :fair, :discount, :refund_fee, :refund_fair].each do |type|
