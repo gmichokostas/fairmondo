@@ -54,6 +54,31 @@ class BusinessTransactionTest < ActiveSupport::TestCase
     should enumerize(:selected_payment).in(:bank_transfer, :cash, :paypal, :cash_on_delivery, :invoice, :voucher)
   end
 
-  describe 'methods' do
+  describe '#billable?' do
+    it 'returns true if seller is legal entity' do
+      seller = FactoryGirl.create(:legal_entity, :paypal_data)
+      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller)
+      assert_equal true, bt.billable?
+    end
+
+    it 'returns false if seller is ngo' do
+      seller = FactoryGirl.create(:legal_entity, :paypal_data, :ngo)
+      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller)
+      assert_equal false, bt.billable?
+    end
+
+    it 'returns false if seller is private user' do
+      seller = FactoryGirl.create(:private_user, :paypal_data)
+      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller)
+      assert_equal false, bt.billable?
+    end
+
+    it 'returns false if article price is 0' do
+      seller = FactoryGirl.create(:legal_entity, :paypal_data)
+      article = FactoryGirl.create(:article, price_cents: 0)
+      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller,
+        article: article)
+      assert_equal false, bt.billable?
+    end
   end
 end

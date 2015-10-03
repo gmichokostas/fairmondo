@@ -45,10 +45,6 @@ describe FastbillAPI do
 end
 
   #   describe '::fastbill_chain' do
-  #     it 'should find seller of transaction' do
-  #       api = FastbillAPI.new db_business_transaction
-  #       api.instance_eval('@seller').must_equal seller
-  #     end
 
   #     describe 'when seller is an NGO' do
   #       it 'should not contact Fastbill' do
@@ -114,16 +110,6 @@ end
   #           #Fastbill::Automatic::Subscription.expects(:setusagedata).twice
   #           api.fastbill_chain
   #         end
-  #       end
-  #     end
-
-  #     describe 'article price is 0 Euro' do
-  #       # doesn't belong here
-  #       let(:article) { FactoryGirl.create :article, price: Money.new(0) }
-  #       it 'should not call FastbillAPI' do
-  #         api = FastbillAPI.new
-  #         api.expects(:fastbill_chain).never
-  #         FactoryGirl.create :business_transaction, article: article
   #       end
   #     end
   #   end
