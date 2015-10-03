@@ -63,7 +63,7 @@ describe ToolboxController do
 
     describe 'as html' do
       it 'should be successful' do
-        VCR.use_cassette('rss_xml') do
+        VCR.use_cassette('rss/xml') do
           get :rss
           assert_response :success
         end
@@ -72,7 +72,7 @@ describe ToolboxController do
 
     describe 'as json' do
       it 'should fail' do
-        VCR.use_cassette('rss_json') do
+        VCR.use_cassette('rss/json') do
           -> { get :rss, format: :json }.must_raise ActionController::UnknownFormat
         end
       end

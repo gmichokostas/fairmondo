@@ -5,7 +5,7 @@ http_interactions:
     uri: https://www.sandbox.paypal.com/cgi-bin/webscr
     body:
       encoding: UTF-8
-      string: cmd=_notify-validate&pay_key=1234&status=Invalid
+      string: cmd=_notify-validate&pay_key=1234&status=COMPLETED
     headers:
       Accept-Encoding:
       - identity
@@ -21,32 +21,32 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 23 Sep 2015 13:07:44 GMT
+      - Sat, 03 Oct 2015 16:14:25 GMT
       Server:
       - Apache
       X-Frame-Options:
       - SAMEORIGIN
       Set-Cookie:
-      - Apache=10.72.108.11.1443013664515121; path=/; expires=Fri, 15-Sep-45 13:07:44
+      - Apache=10.72.108.11.1443888865771531; path=/; expires=Mon, 25-Sep-45 16:14:25
         GMT
-      - Apache=10.72.128.11.1443013664498304; path=/; expires=Fri, 15-Sep-45 13:07:44
+      - Apache=10.72.128.11.1443888865751729; path=/; expires=Mon, 25-Sep-45 16:14:25
         GMT
       - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
-      - X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D547619414;
+      - X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D3791523670;
         domain=.paypal.com; path=/; Secure; HttpOnly
-      - c9MWDuvPtT9GIMyPc3jwol1VSlO=jRHfyZf3908eAEklkWNImi_dYdjWZsME7OfHxJ7tZrgkicbHRzKsuafrSRDGDwECIGLkXmzeGc56N4DX-Z59UsNFbQiQ5pYQ3yYpaMkX33H-t_QgPQi14Lu5gaUJ_5qJZ5NiZCIggwV_uXpvWJ3sIPUwFwHcaJnMpF2aLBQACo7Wob92LuVXMFFg5hVjFw6_v-UdgcpbNZr7nKmJ1Fr59bY6AC-WIuM_Id29PyevPhbhc5M1_3nGwd_a_fgtFwl2kQVjNOoLb5U0tD7wl1f4APi_l2O4sArsSq8TSvxxk4eSSEgKetiyDxfBsJD_CH44PDJdaa_L2bhXvtnYLL7A_JgxDPPQpunwJqEhVcou9YzBkJseCxDRMhrXG0uKEoNV1ktvTyejjGLWJKETOpOId8kdIhOqJDTbvnODYGtzYTwoKrX_iuQwUNgRpB4;
+      - c9MWDuvPtT9GIMyPc3jwol1VSlO=3vOVBohoon15k62yWww2e02WV4FbhYMpvqkZSLsCsxnPTR_y1XxGnqp3tQt8xIx2iiEeV12nDAftGSP236gCUDDL0TCJ5S5WKqrheM1HZl7A0Vdk4zFA4oLsc8CiaAK1oyBqmqbHEf_2BMcSdpqX05St3rj277VD5_Aoro0AFbnU3LqYqkTryEdgH55dHph9dagsFpUYDXM5giIGjZI-AgmdF6VdbYDBB4D2xRMLrGuwpBlWInCsMIEoxWVE3fRCjVG91hFbYe82V6d1h4Igv4DELvZFONyWZjP9MEqz6s-p4K0ugKBVS1_vmcBp1kzl6_KIcWh1sCNUWTcOP66LeJ1ng-tMpHLgNaFFMm2-rmnrG0jZ6AM-h8GDolFXS34MQ_XjqEO5bd2UZ-a4vtAtIMgzShEXK9dKptJFSKe9Ar6T-7-uS_X9NSwOXaK;
         domain=.paypal.com; path=/; Secure; HttpOnly
-      - cookie_check=yes; expires=Sat, 20-Sep-2025 13:07:44 GMT; domain=.paypal.com;
+      - cookie_check=yes; expires=Tue, 30-Sep-2025 16:14:26 GMT; domain=.paypal.com;
         path=/; Secure; HttpOnly
       - navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
-      - navlns=0.0; expires=Fri, 22-Sep-2017 13:07:44 GMT; domain=.paypal.com; path=/;
+      - navlns=0.0; expires=Mon, 02-Oct-2017 16:14:26 GMT; domain=.paypal.com; path=/;
         Secure; HttpOnly
       Vary:
       - Accept-Encoding,User-Agent
       X-Cnection:
       - close
       Paypal-Debug-Id:
-      - a2d4360679b3a
+      - 500e04e2b798e
       Strict-Transport-Security:
       - max-age=14400
       Transfer-Encoding:
@@ -57,5 +57,5 @@ http_interactions:
       encoding: UTF-8
       string: INVALID
     http_version: 
-  recorded_at: Wed, 23 Sep 2015 13:10:29 GMT
+  recorded_at: Sat, 03 Oct 2015 16:14:29 GMT
 recorded_with: VCR 2.9.3
