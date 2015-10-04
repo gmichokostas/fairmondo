@@ -167,6 +167,11 @@ class User < ActiveRecord::Base
     super Digest::MD5.hexdigest(value)
   end
 
+  # Returns true if the user should be billed for sold articles via Fastbill
+  def billable?
+    self.is_a?(LegalEntity) && !self.is_ngo?
+  end
+
   # FastBill: this method checks if a user already has fastbill profile
   def has_fastbill_profile?
     if fastbill_id && fastbill_subscription_id

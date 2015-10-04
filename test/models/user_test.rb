@@ -217,6 +217,23 @@ describe User do
       end
     end
 
+    describe '#billable?' do
+      it 'should return true if the user is a legal entity' do
+        user = FactoryGirl.build(:legal_entity)
+        assert_equal true, user.billable?
+      end
+
+      it 'should return false if the user is a private user' do
+        user = FactoryGirl.build(:private_user)
+        assert_equal false, user.billable?
+      end
+
+      it 'should return false if the user is an ngo' do
+        user = FactoryGirl.build(:legal_entity, :ngo)
+        assert_equal false, user.billable?
+      end
+    end
+
     describe '#has_fastbill_profile?' do
       it 'should return true if user has Fastbill profile' do
         user = FactoryGirl.build_stubbed(:legal_entity, :fastbill)

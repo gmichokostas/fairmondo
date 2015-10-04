@@ -55,29 +55,22 @@ class BusinessTransactionTest < ActiveSupport::TestCase
   end
 
   describe '#billable?' do
-    it 'returns true if seller is legal entity' do
-      seller = FactoryGirl.create(:legal_entity, :paypal_data)
-      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller)
-      assert_equal true, bt.billable?
+    let(:business_transaction) { FactoryGirl.build_stubbed(:business_transaction) }
+
+    it 'returns true if seller is billable' do
+      User.any_instance.stubs(:billable?).returns(true)
+      assert_equal true, business_transaction.billable?
     end
 
-    it 'returns false if seller is ngo' do
-      seller = FactoryGirl.create(:legal_entity, :paypal_data, :ngo)
-      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller)
-      assert_equal false, bt.billable?
-    end
-
-    it 'returns false if seller is private user' do
-      seller = FactoryGirl.create(:private_user, :paypal_data)
-      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller)
-      assert_equal false, bt.billable?
+    it 'returns false if seller is not billable' do
+      User.any_instance.stubs(:billable?).returns(false)
+      assert_equal false, business_transaction.billable?
     end
 
     it 'returns false if article price is 0' do
-      seller = FactoryGirl.create(:legal_entity, :paypal_data)
       article = FactoryGirl.create(:article, price_cents: 0)
-      bt = FactoryGirl.build_stubbed(:business_transaction, seller: seller,
-        article: article)
+      User.any_instance.stubs(:billable?).returns(true)
+      bt = FactoryGirl.build_stubbed(:business_transaction, article: article)
       assert_equal false, bt.billable?
     end
   end
