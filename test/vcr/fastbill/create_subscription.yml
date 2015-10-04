@@ -1,0 +1,142 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.create","data":{"customer_type":"business","organization":"Marquardt,
+        Wyman and Harris","salutation":"Prof.","first_name":"Buster","last_name":"Mraz","address":"Feeneystr.
+        139","address_2":"Apt. 004","zipcode":"10969","city":"Pasewalk","country_code":"DE","language_code":"DE","email":"kurtis@wyman.biz","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"Leilani
+        Mitchell","bank_code":"29617583","bank_account_number":"11360517","bank_account_owner":"Laney
+        Nienow","customer_number":1}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:33 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:33 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=c67cn4958o5qgninkfmt2c7h66; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '525'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_TYPE":"business","ORGANIZATION":"Marquardt,
+        Wyman and Harris","SALUTATION":"Prof.","FIRST_NAME":"Buster","LAST_NAME":"Mraz","ADDRESS":"Feeneystr.
+        139","ADDRESS_2":"Apt. 004","ZIPCODE":"10969","CITY":"Pasewalk","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"kurtis@wyman.biz","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"Leilani
+        Mitchell","BANK_CODE":"29617583","BANK_ACCOUNT_NUMBER":"11360517","BANK_ACCOUNT_OWNER":"Laney
+        Nienow","CUSTOMER_NUMBER":1}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":982084,"HASH":"80edf748a3949e95cf48bf3d3c6fde29","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/80edf748a3949e95cf48bf3d3c6fde29","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/80edf748a3949e95cf48bf3d3c6fde29"}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:36 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"subscription.create","data":{"article_number":"10","customer_id":982084,"next_event":"2015-10-31
+        23:59:59"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:34 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:34 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=ekg91jdhha8tt4udnju6ct7nk6; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '235'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"subscription.create","DATA":{"ARTICLE_NUMBER":"10","CUSTOMER_ID":982084,"NEXT_EVENT":"2015-10-31
+        23:59:59"}},"RESPONSE":{"STATUS":"success","SUBSCRIPTION_ID":496280,"HASH":"8b9e6e7c3b9cd4e96f3014fa90f09afa","INVOICE_ID":null,"PAYPAL_URL":""}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:37 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.delete","data":{"customer_id":"982084"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:34 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:34 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=ckjknfqpkl0h6ehucv01v41g74; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '116'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.delete","DATA":{"CUSTOMER_ID":"982084"}},"RESPONSE":{"STATUS":"success"}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:38 GMT
+recorded_with: VCR 2.9.3

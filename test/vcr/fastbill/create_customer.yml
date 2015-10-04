@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.create","data":{"customer_type":"business","organization":"Okuneva
+        LLC","salutation":"Dr.","first_name":"Dante","last_name":"Pouros","address":"Lewisstr.
+        172","address_2":"Apt. 727","zipcode":"10969","city":"Lunzenau","country_code":"DE","language_code":"DE","email":"steve@cruickshank.us","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"Leilani
+        Mitchell","bank_code":"67738897","bank_account_number":"52317795","bank_account_owner":"Laney
+        Nienow","customer_number":1}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:29 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:29 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=b429lbv9gf529qh6usolq170h2; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '514'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_TYPE":"business","ORGANIZATION":"Okuneva
+        LLC","SALUTATION":"Dr.","FIRST_NAME":"Dante","LAST_NAME":"Pouros","ADDRESS":"Lewisstr.
+        172","ADDRESS_2":"Apt. 727","ZIPCODE":"10969","CITY":"Lunzenau","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"steve@cruickshank.us","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"Leilani
+        Mitchell","BANK_CODE":"67738897","BANK_ACCOUNT_NUMBER":"52317795","BANK_ACCOUNT_OWNER":"Laney
+        Nienow","CUSTOMER_NUMBER":1}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":982080,"HASH":"562221206f5e5ec15dd29dea3aa0a602","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/562221206f5e5ec15dd29dea3aa0a602","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/562221206f5e5ec15dd29dea3aa0a602"}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:33 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.delete","data":{"customer_id":"982080"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:30 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:30 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=ti6j8l2hfopbfucjisol39kl76; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '114'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.delete","DATA":{"CUSTOMER_ID":"982080"}},"RESPONSE":{"STATUS":"success"}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:33 GMT
+recorded_with: VCR 2.9.3

@@ -217,14 +217,62 @@ describe User do
       end
     end
 
-    describe '#update_fastbill_profile' do
-      let(:user) { FactoryGirl.create :legal_entity, :fastbill }
-      let(:api) { FastbillAPI.new }
+    describe '#has_fastbill_profile?' do
+      it 'should return true if user has Fastbill profile' do
+        user = FactoryGirl.build_stubbed(:legal_entity, :fastbill)
+        assert_equal true, user.has_fastbill_profile?
+      end
 
-      it 'should call FastBillAPI.update_profile if user has fastbill profile' do
-        Fastbill::Automatic::Customer.expects(:get).returns [Fastbill::Automatic::Customer.new]
-        Fastbill::Automatic::Customer.any_instance.stubs(:update_attributes)
-        user.update_fastbill_profile
+      it 'should return false if user has no Fastbill profile' do
+        user = FactoryGirl.build_stubbed(:legal_entity)
+        assert_equal false, user.has_fastbill_profile?
+      end
+    end
+
+    describe '#create_fastbill_profile!' do
+      let(:user) { FactoryGirl.create(:legal_entity) }
+      let(:fake_api) { stub }
+
+      it 'should make the api calls to create a new profile' do
+        fake_api.expects(:fastbill_create_customer).once.returns('981962')
+        fake_api.expects(:fastbill_create_subscription).once.returns('496202')
+        FastbillUserAPI.expects(:new).once.with(user).returns(fake_api)
+        user.create_fastbill_profile!
+        assert_equal 981962, user.fastbill_id
+        assert_equal 496202, user.fastbill_subscription_id
+        # Does not check if it's saved to the database
+      end
+    end
+
+    describe '#delete_fastbill_profile!' do
+      let(:user) { FactoryGirl.create(:legal_entity, :fastbill) }
+      let(:fake_api) { stub }
+
+      it 'should delete fastbill profile' do
+        fake_api.expects(:fastbill_delete_customer).once
+        FastbillUserAPI.expects(:new).once.with(user).returns(fake_api)
+        user.delete_fastbill_profile!
+        assert_equal nil, user.fastbill_id
+        assert_equal nil, user.fastbill_subscription_id
+      end
+    end
+
+    # Have to check this one
+    describe '#update_fastbill_profile!' do
+      let(:user_with_profile) { FactoryGirl.build_stubbed :legal_entity, :fastbill }
+      let(:user_wo_profile) { FactoryGirl.build_stubbed :legal_entity }
+      let(:fake_api) { stub }
+
+      it 'should call to FastbillUserAPI if user has Fastbill profile' do
+        fake_api.expects(:fastbill_update_customer).once
+        FastbillUserAPI.expects(:new).once.with(user_with_profile).returns(fake_api)
+        user_with_profile.update_fastbill_profile!
+      end
+
+      it 'should not call FastbillUserAPI if user has no Fastbill profile' do
+        fake_api.expects(:fastbill_update_customer).never
+        FastbillUserAPI.expects(:new).never
+        user_wo_profile.update_fastbill_profile!
       end
     end
 

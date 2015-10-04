@@ -169,15 +169,39 @@ class User < ActiveRecord::Base
 
   # FastBill: this method checks if a user already has fastbill profile
   def has_fastbill_profile?
-    fastbill_id && fastbill_subscription_id
+    if fastbill_id && fastbill_subscription_id
+      true
+    else
+      false
+    end
   end
 
-  # FastBill
-  # only update Fastbill profile if user is a Legal Entity
-  def update_fastbill_profile
+  # Fastbill: Create a Fastbill profile if there is not any
+  def create_fastbill_profile!
+    User.observers.disable :user_observer do
+      api = FastbillUserAPI.new self
+      customer_id = api.fastbill_create_customer
+      self.update_attribute :fastbill_id, customer_id
+      subscription_id = api.fastbill_create_subscription
+      self.update_attribute :fastbill_subscription_id, subscription_id
+    end
+  end
+
+  # Fastbill: Delete Fastbill profile
+  def delete_fastbill_profile!
+    User.observers.disable :user_observer do
+      api = FastbillUserAPI.new self
+      api.fastbill_delete_customer
+      self.update_attribute :fastbill_id, nil
+      self.update_attribute :fastbill_subscription_id, nil
+    end
+  end
+
+  # FastBill: only update Fastbill profile if user is a Legal Entity
+  def update_fastbill_profile!
     if self.is_a?(LegalEntity) && self.has_fastbill_profile?
-      api = FastbillAPI.new
-      api.update_profile self
+      api = FastbillUserAPI.new self
+      api.fastbill_update_customer
     end
   end
 

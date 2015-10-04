@@ -1,0 +1,196 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.create","data":{"customer_type":"business","organization":"Williamson,
+        Paucek and O''Reilly","salutation":"Prof.","first_name":"Wanda","last_name":"Jewess","address":"O''Harastr.
+        53","address_2":"Apt. 627","zipcode":"10827","city":"Munderkingen","country_code":"DE","language_code":"DE","email":"cathryn_witting@jewess.com","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"Leilani
+        Mitchell","bank_code":"10920596","bank_account_number":"74744211","bank_account_owner":"Laney
+        Nienow","customer_number":1}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:31 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:31 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=tlnvj5isqgjh242nai7hhg7us3; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '533'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_TYPE":"business","ORGANIZATION":"Williamson,
+        Paucek and O''Reilly","SALUTATION":"Prof.","FIRST_NAME":"Wanda","LAST_NAME":"Jewess","ADDRESS":"O''Harastr.
+        53","ADDRESS_2":"Apt. 627","ZIPCODE":"10827","CITY":"Munderkingen","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"cathryn_witting@jewess.com","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"Leilani
+        Mitchell","BANK_CODE":"10920596","BANK_ACCOUNT_NUMBER":"74744211","BANK_ACCOUNT_OWNER":"Laney
+        Nienow","CUSTOMER_NUMBER":1}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":982082,"HASH":"d2219392c43fe8c4217374d0ba72a6d3","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/d2219392c43fe8c4217374d0ba72a6d3","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/d2219392c43fe8c4217374d0ba72a6d3"}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:34 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.get","filter":{"customer_id":982082}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:31 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:31 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=jk1rggsb75gah626d891rcgr85; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '793'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.get","FILTER":{"CUSTOMER_ID":982082}},"RESPONSE":{"CUSTOMERS":[{"CUSTOMER_ID":"982082","CUSTOMER_NUMBER":"1","DAYS_FOR_PAYMENT":"14","CREATED":"2015-10-04
+        13:01:31","PAYMENT_TYPE":"1","BANK_NAME":"Leilani Mitchell","BANK_ACCOUNT_NUMBER":"74744211","BANK_CODE":"10920596","BANK_ACCOUNT_OWNER":"Laney
+        Nienow","BANK_IBAN":"DE92109205960074744211","BANK_BIC":"","BANK_ACCOUNT_OWNER_ADDRESS":"","BANK_ACCOUNT_OWNER_CITY":"","BANK_ACCOUNT_OWNER_ZIPCODE":"","BANK_ACCOUNT_OWNER_EMAIL":"","BANK_ACCOUNT_MANDATE_REFERENCE":"","SHOW_PAYMENT_NOTICE":"1","CUSTOMER_TYPE":"business","NEWSLETTER_OPTIN":"","AFFILIATE":"","INVOICE_DELIVERY_METHOD":"mail","HASH":"d2219392c43fe8c4217374d0ba72a6d3","PASSWORD":"DUMMY","BANK_ACCOUNT_MANDATE_REFERENCE_DATE":"","X_ATTRIBUTES":"","ORGANIZATION":"Williamson,
+        Paucek and O''Reilly","TITLE_ACADEMIC":"","SALUTATION":"","FIRST_NAME":"Wanda","LAST_NAME":"Jewess","ADDRESS":"O''Harastr.
+        53","ADDRESS_2":"Apt. 627","ZIPCODE":"10827","CITY":"Munderkingen","COUNTRY_CODE":"DE","SECONDARY_ADDRESS":"","STATE":"","PHONE":"","FAX":"","EMAIL":"cathryn_witting@jewess.com","EMAIL_CC":"","BIRTHDAY":"0000-00-00","PAYMENT_MAIL_ADDRESS":"","VAT_ID":"","CURRENCY_CODE":"EUR","COMMENT":"","LASTUPDATE":"2015-10-04
+        13:01:31","TAGS":"","CUSTOMER_EXT_UID":"","LANGUAGE_CODE":"de","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/d2219392c43fe8c4217374d0ba72a6d3","TAX_ID":"","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/d2219392c43fe8c4217374d0ba72a6d3","CREDIT_BALANCE":"0,00"}]}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:34 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.update","data":{"customer_type":"business","organization":"Williamson,
+        Paucek and O''Reilly","salutation":"Prof.","first_name":"Wanda","last_name":"Jewess","address":"Dammtorstr.
+        1","address_2":"","zipcode":"20095","city":"Hamburg","country_code":"DE","language_code":"DE","email":"cathryn_witting@jewess.com","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"Leilani
+        Mitchell","bank_code":"10920596","bank_account_number":"74744211","bank_account_owner":"Laney
+        Nienow","customer_id":"982082"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:32 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:32 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=0r18mhk5u4hkqt377ps8po5i05; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '397'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.update","DATA":{"CUSTOMER_TYPE":"business","ORGANIZATION":"Williamson,
+        Paucek and O''Reilly","SALUTATION":"Prof.","FIRST_NAME":"Wanda","LAST_NAME":"Jewess","ADDRESS":"Dammtorstr.
+        1","ADDRESS_2":"","ZIPCODE":"20095","CITY":"Hamburg","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"cathryn_witting@jewess.com","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"Leilani
+        Mitchell","BANK_CODE":"10920596","BANK_ACCOUNT_NUMBER":"74744211","BANK_ACCOUNT_OWNER":"Laney
+        Nienow","CUSTOMER_ID":"982082"}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":"982082"}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:35 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.delete","data":{"customer_id":"982082"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 04 Oct 2015 11:01:32 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Sun, 04 Oct 2015 11:01:32 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=t5jlnaipb53ecfps15vd9lrnj0; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '114'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.delete","DATA":{"CUSTOMER_ID":"982082"}},"RESPONSE":{"STATUS":"success"}}'
+    http_version: 
+  recorded_at: Sun, 04 Oct 2015 11:01:36 GMT
+recorded_with: VCR 2.9.3

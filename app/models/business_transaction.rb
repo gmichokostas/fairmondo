@@ -151,6 +151,7 @@ class BusinessTransaction < ActiveRecord::Base
 
   # only LegalEntities will be billed, sales for PrivateUsers and NGOs are free
   # articles that are free are not billed either
+  # maybe add !voucher_selected? here? See AfterbuyWorker
   def billable?
     self.seller.is_a?(LegalEntity) && !self.seller.is_ngo? && self.article.price_cents > 0
   end

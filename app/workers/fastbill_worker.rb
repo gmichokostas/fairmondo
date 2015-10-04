@@ -8,7 +8,9 @@ class FastbillWorker
   def perform(id)
     BusinessTransaction.transaction do
       bt = BusinessTransaction.lock.find(id)
+
       # check if bt is qualified for discount
+      # Why is this done here?
       Discount.discount_chain(bt) if bt.article_discount_id
       # Start the fastbill chain, to create invoices and add items to invoice
       api = FastbillAPI.new(bt)

@@ -7,7 +7,6 @@ class FastbillUpdateUserWorker
 
   def perform user_id
     user = User.find(user_id)
-    api = FastbillAPI.new
-    api.update_profile(user)
+    user.update_fastbill_profile
   end
 end
