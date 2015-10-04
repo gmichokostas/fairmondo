@@ -7,7 +7,7 @@ describe FastbillUserAPI do
   describe 'customer administration' do
     # not perfect, result codes are needed from Fastbill, but are there any?
     # can't really test fastbill_delete_customer either
-    # but it can be tested by looking at the VCR tapes
+    # but it could be tested by looking at the VCR tapes
 
     it 'should be able to create a customer from Fastbill' do
       VCR.use_cassette('fastbill/create_customer') do

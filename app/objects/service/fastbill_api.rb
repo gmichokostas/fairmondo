@@ -8,33 +8,12 @@ class FastbillAPI
     end
   end
 
-  # Fastbill chain takes control of everything
-  def fastbill_chain
-    if @bt.billable?
-      @seller.with_lock do
-        unless @seller.has_fastbill_profile?
-          fastbill_create_customer
-          fastbill_create_subscription
-        end
-
-        [:fair, :fee].each do |type|
-          send "fastbill_#{ type }"
-        end
-
-        fastbill_discount if @bt.discount
-      end
-    end
-  end
-
-  private
-
-  # What is actually defined here?
   # fastbill_fee
   # fastbill_fair
   # fastbill_discount
   # fastbill_refund_fee
   # fastbill_refund_fair
-  # Why is this split up into fee and fair all the time?
+  # Why has this to be split up into fee and fair all the time?
   [:fee, :fair, :discount, :refund_fee, :refund_fair].each do |type|
     define_method "fastbill_#{ type }" do
       unless @bt.send("billed_for_#{ type }")
@@ -51,6 +30,8 @@ class FastbillAPI
       end
     end
   end
+
+  private
 
   def description_for type
     if type == :discount

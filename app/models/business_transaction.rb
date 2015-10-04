@@ -149,11 +149,23 @@ class BusinessTransaction < ActiveRecord::Base
     quantity_bought * article_calculated_fair_cents
   end
 
-  # only LegalEntities will be billed, sales for PrivateUsers and NGOs are free
-  # articles that are free are not billed either
+  # Only billable users will be billed.
+  # Articles that are free are not billed either
   # maybe add !voucher_selected? here? See AfterbuyWorker
   def billable?
     seller.billable? && article.price_cents > 0
+  end
+
+  # Bill with Fastbill
+  def bill!
+    if billable?
+      seller.create_fastbill_profile! unless seller.has_fastbill_profile?
+
+      api = FastbillAPI.new self
+      api.fastbill_fair
+      api.fastbill_fee
+      api.fastbill_discount if discount
+    end
   end
 
   private

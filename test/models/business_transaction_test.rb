@@ -74,4 +74,53 @@ class BusinessTransactionTest < ActiveSupport::TestCase
       assert_equal false, bt.billable?
     end
   end
+
+  describe '#bill!' do
+    let(:seller_with_profile) { FactoryGirl.create(:legal_entity, :fastbill, :paypal_data) }
+    let(:seller_wo_profile) { FactoryGirl.create(:legal_entity, :paypal_data) }
+    let(:fake_api) { stub(fastbill_fee: nil, fastbill_fair: nil) }
+    let(:fake_user_api) { stub(fastbill_create_customer: nil, fastbill_create_subscription: nil) }
+
+    it 'creates a Fastbill profile first if necessary' do
+      bt = FactoryGirl.create(:business_transaction, seller: seller_wo_profile)
+      # Not really ideal to bring up FastbillUserAPI here?
+      FastbillAPI.expects(:new).returns(fake_api)
+      FastbillUserAPI.expects(:new).returns(fake_user_api)
+      bt.bill!
+    end
+
+    it 'does not create a profile if it already exists' do
+      bt = FactoryGirl.create(:business_transaction, seller: seller_with_profile)
+      seller_with_profile.expects(:create_fastbill_profile!).never
+      FastbillAPI.expects(:new).with(bt).returns(fake_api)
+      bt.bill!
+    end
+
+    it 'does bill if the transaction is billable' do
+      bt = FactoryGirl.create(:business_transaction, seller: seller_with_profile)
+      fake_api.expects(:fastbill_fee)
+      fake_api.expects(:fastbill_fair)
+      fake_api.expects(:fastbill_discount).never
+      FastbillAPI.expects(:new).with(bt).returns(fake_api)
+      bt.bill!
+    end
+
+    it 'does bill discount additionally if bt is discounted' do
+      discount = FactoryGirl.create(:discount)
+      bt = FactoryGirl.create(:business_transaction,
+                              seller: seller_with_profile, discount: discount)
+      fake_api.expects(:fastbill_fee)
+      fake_api.expects(:fastbill_fair)
+      fake_api.expects(:fastbill_discount)
+      FastbillAPI.expects(:new).with(bt).returns(fake_api)
+      bt.bill!
+    end
+
+    it 'does not bill if the transaction is not billable' do
+      bt = BusinessTransaction.new
+      bt.expects(:billable?).once.returns(false)
+      FastbillAPI.expects(:new).never
+      bt.bill!
+    end
+  end
 end

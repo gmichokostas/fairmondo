@@ -123,8 +123,8 @@ FactoryGirl.define do
     end
 
     trait :fastbill do
-      fastbill_id '1223'
-      fastbill_subscription_id '76543'
+      fastbill_id 123456
+      fastbill_subscription_id 987654
     end
 
     trait :ngo do
