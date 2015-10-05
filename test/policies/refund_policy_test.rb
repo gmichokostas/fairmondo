@@ -1,10 +1,14 @@
 require_relative '../test_helper'
-include FastBillStubber
 include PunditMatcher
 
 describe RefundPolicy do
   let(:refund) { FactoryGirl.create :refund }
   subject { RefundPolicy.new(user, refund) }
+
+  def setup
+    fake_api = stub(fastbill_refund_fee: nil, fastbill_refund_fair: nil)
+    FastbillAPI.stubs(:new).returns(fake_api)
+  end
 
   describe 'for a visitor' do
     let(:user) { nil }

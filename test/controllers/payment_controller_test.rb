@@ -20,7 +20,6 @@
 # along with Fairmondo.  If not, see <http://www.gnu.org/licenses/>.
 #
 require_relative '../test_helper'
-include FastBillStubber
 
 describe PaymentsController do
   let(:lig) { FactoryGirl.create :line_item_group, :sold, :with_business_transactions, traits: [:paypal, :transport_type1] }

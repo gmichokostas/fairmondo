@@ -20,7 +20,6 @@
 # along with Fairmondo.  If not, see <http://www.gnu.org/licenses/>.
 #
 require_relative '../test_helper'
-include FastBillStubber
 
 include Warden::Test::Helpers
 

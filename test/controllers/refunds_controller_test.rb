@@ -21,8 +21,6 @@
 #
 require_relative '../test_helper'
 
-include FastBillStubber
-
 describe RefundsController do
   let(:seller) { FactoryGirl.create :user }
   let(:line_item_group) { FactoryGirl.create :line_item_group, seller: seller }
@@ -31,6 +29,10 @@ describe RefundsController do
   describe '#create' do
     describe 'for signed in users' do
       it 'should create refund request' do
+        # setup FastbillAPI stub
+        fake_api = stub(fastbill_refund_fee: nil, fastbill_refund_fair: nil)
+        FastbillAPI.stubs(:new).returns(fake_api)
+
         @refund_attrs = FactoryGirl.attributes_for :refund
         sign_in seller
         assert_difference 'Refund.count', 1 do

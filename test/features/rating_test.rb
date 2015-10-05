@@ -22,7 +22,6 @@
 require_relative '../test_helper'
 
 include Warden::Test::Helpers
-include FastBillStubber
 
 feature 'User ratings' do
   let(:buyer) { FactoryGirl.create :user }

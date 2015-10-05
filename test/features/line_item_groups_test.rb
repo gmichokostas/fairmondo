@@ -1,7 +1,6 @@
 # Maybe merge this test file with refund_test.rb
 
 require_relative '../test_helper'
-include FastBillStubber
 include Warden::Test::Helpers
 
 feature 'Display line item group after transaction' do
