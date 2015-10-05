@@ -10,7 +10,7 @@ describe FastbillUserAPI do
     # but it could be tested by looking at the VCR tapes
 
     it 'should be able to create a customer from Fastbill' do
-      VCR.use_cassette('fastbill/create_customer') do
+      VCR.use_cassette('fastbill/create_customer', record: :none) do
         customer_id = api.fastbill_create_customer
         assert_kind_of(Fixnum, customer_id)
 
@@ -21,7 +21,7 @@ describe FastbillUserAPI do
     end
 
     it 'should be able to update a customer at Fastbill' do
-      VCR.use_cassette('fastbill/update_customer') do
+      VCR.use_cassette('fastbill/update_customer', record: :none) do
         # setup
         user.fastbill_id = api.fastbill_create_customer
 
@@ -40,7 +40,7 @@ describe FastbillUserAPI do
 
   describe 'subscription administration' do
     it 'should be able to create a subscription from Fastbill' do
-      VCR.use_cassette('fastbill/create_subscription') do
+      VCR.use_cassette('fastbill/create_subscription', record: :none) do
         # setup
         user.fastbill_id = api.fastbill_create_customer
 

@@ -1,0 +1,236 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.create","data":{"customer_type":"business","organization":"Satterfield
+        and Sons","salutation":"Frau","first_name":"Melisa","last_name":"Rohan","address":"Heaneystr.
+        109","address_2":"Apt. 283","zipcode":"10715","city":"Schleiden","country_code":"DE","language_code":"DE","email":"syble.cremin@connokuneva.com","currency_code":"EUR","payment_type":"1","show_payment_notice":"1","bank_name":"Jake
+        Baumbach V","bank_code":"23545718","bank_account_number":"72771962","bank_account_owner":"Ova
+        Flatley","customer_number":1}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 05 Oct 2015 13:32:23 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Mon, 05 Oct 2015 13:32:23 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=h7kea1o0h0dmhricb9bb702sb6; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '526'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_TYPE":"business","ORGANIZATION":"Satterfield
+        and Sons","SALUTATION":"Frau","FIRST_NAME":"Melisa","LAST_NAME":"Rohan","ADDRESS":"Heaneystr.
+        109","ADDRESS_2":"Apt. 283","ZIPCODE":"10715","CITY":"Schleiden","COUNTRY_CODE":"DE","LANGUAGE_CODE":"DE","EMAIL":"syble.cremin@connokuneva.com","CURRENCY_CODE":"EUR","PAYMENT_TYPE":"1","SHOW_PAYMENT_NOTICE":"1","BANK_NAME":"Jake
+        Baumbach V","BANK_CODE":"23545718","BANK_ACCOUNT_NUMBER":"72771962","BANK_ACCOUNT_OWNER":"Ova
+        Flatley","CUSTOMER_NUMBER":1}},"RESPONSE":{"STATUS":"success","CUSTOMER_ID":983274,"HASH":"01c1e6ed285edfce6acc23ef365ddab0","CHANGEDATA_URL":"https:\/\/automatic.fastbill.com\/accountdata\/b77d25d460a1129d2de0914151c47e3a\/01c1e6ed285edfce6acc23ef365ddab0","DASHBOARD_URL":"https:\/\/automatic.fastbill.com\/dashboard\/b77d25d460a1129d2de0914151c47e3a\/01c1e6ed285edfce6acc23ef365ddab0"}}'
+    http_version: 
+  recorded_at: Mon, 05 Oct 2015 13:35:26 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"subscription.create","data":{"article_number":"10","customer_id":983274,"next_event":"2015-10-31
+        23:59:59"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 05 Oct 2015 13:32:23 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Mon, 05 Oct 2015 13:32:23 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=e79p3kqjmdv2magtc5k2k25ns6; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '235'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"subscription.create","DATA":{"ARTICLE_NUMBER":"10","CUSTOMER_ID":983274,"NEXT_EVENT":"2015-10-31
+        23:59:59"}},"RESPONSE":{"STATUS":"success","SUBSCRIPTION_ID":496626,"HASH":"a3d20bca421859d2df39aa29159313d5","INVOICE_ID":null,"PAYPAL_URL":""}}'
+    http_version: 
+  recorded_at: Mon, 05 Oct 2015 13:35:27 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"subscription.setusagedata","data":{"subscription_id":496626,"article_number":11,"quantity":1,"unit_price":-1.8,"description":"1
+        Rerum Et Accusantium Sint (Rückerstattung Faires Prozent)","usage_date":"2015-08-22
+        15:35:28"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 05 Oct 2015 13:32:25 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Mon, 05 Oct 2015 13:32:25 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=jfvvrqg1cbr9thanob21uutg61; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '260'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"subscription.setusagedata","DATA":{"SUBSCRIPTION_ID":496626,"ARTICLE_NUMBER":11,"QUANTITY":1,"UNIT_PRICE":-1.8,"DESCRIPTION":"1
+        Rerum Et Accusantium Sint (R\u00fcckerstattung Faires Prozent)","USAGE_DATE":"2015-08-22
+        15:35:28"}},"RESPONSE":{"STATUS":"success","USAGEDATA_ID":1776246}}'
+    http_version: 
+  recorded_at: Mon, 05 Oct 2015 13:35:28 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"subscription.setusagedata","data":{"subscription_id":496626,"article_number":12,"quantity":1,"unit_price":-10.76,"description":"1
+        Rerum Et Accusantium Sint (Rückerstattung Verkaufsgebühr)","usage_date":"2015-08-22
+        15:35:28"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 05 Oct 2015 13:32:25 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Mon, 05 Oct 2015 13:32:25 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=ltsbosmbv5efufjpsd9jju5fv0; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '266'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"subscription.setusagedata","DATA":{"SUBSCRIPTION_ID":496626,"ARTICLE_NUMBER":12,"QUANTITY":1,"UNIT_PRICE":-10.76,"DESCRIPTION":"1
+        Rerum Et Accusantium Sint (R\u00fcckerstattung Verkaufsgeb\u00fchr)","USAGE_DATE":"2015-08-22
+        15:35:28"}},"RESPONSE":{"STATUS":"success","USAGEDATA_ID":1776248}}'
+    http_version: 
+  recorded_at: Mon, 05 Oct 2015 13:35:29 GMT
+- request:
+    method: post
+    uri: https://fastbill-test%40fairmondo.de:92b4e40adbf4b6be0d270001bc648e9bbSoaTymSpMVTxCMZbPOmUp5VwABo6nSu@automatic.fastbill.com/api/1.0/api.php
+    body:
+      encoding: UTF-8
+      string: '{"service":"customer.delete","data":{"customer_id":"983274"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 05 Oct 2015 13:32:26 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-store
+      Last-Modified:
+      - Mon, 05 Oct 2015 13:32:26 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Set-Cookie:
+      - FastBillSESSID=b6ujqrgtbv2d57mo4hogvub9o5; path=/
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '116'
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"REQUEST":{"SERVICE":"customer.delete","DATA":{"CUSTOMER_ID":"983274"}},"RESPONSE":{"STATUS":"success"}}'
+    http_version: 
+  recorded_at: Mon, 05 Oct 2015 13:35:30 GMT
+recorded_with: VCR 2.9.3

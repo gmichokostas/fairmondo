@@ -36,11 +36,19 @@ feature 'Refunds' do
   end
 
   scenario 'legal entity does a refund after 44 days' do
-    seller = FactoryGirl.create :legal_entity, :paypal_data
-    login_as seller
-    transaction = FactoryGirl.create :business_transaction, :older, seller: seller
-    visit line_item_group_path(transaction.line_item_group, tab: :payments)
-    do_refund
+    VCR.use_cassette('fastbill/line_item_legal_entity', record: :none) do
+      # setup Fastbill account
+      seller = FactoryGirl.create :legal_entity, :paypal_data
+      seller.create_fastbill_profile!
+
+      login_as seller
+      transaction = FactoryGirl.create :business_transaction, :older, seller: seller
+      visit line_item_group_path(transaction.line_item_group, tab: :payments)
+      do_refund
+
+      # teardown
+      seller.delete_fastbill_profile!
+    end
   end
 
   scenario 'private user does a refund after 27 days' do
