@@ -104,6 +104,7 @@ gem 'prawn_rails' # pdf generation
 gem 'newrelic_rpm',  group: [:production, :staging]
 gem 'rack-mini-profiler'
 gem 'lograge'
+gem 'exception_notification', '~> 4.1.1'
 
 # ---------- API ----------
 

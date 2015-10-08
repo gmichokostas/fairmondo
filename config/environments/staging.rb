@@ -97,4 +97,11 @@ Fairmondo::Application.configure do
   #Memcached
   config.cache_store = :dalli_store, 'localhost', { :namespace => "fairmondo", :expires_in => 1.day, :compress => true }
 
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      email_prefix: "[EXCEPTION NOTIFICATION] ",
+      sender_address: %{"Exception notifier" <notifier@example.com>},
+      exception_recipients: %w{exceptions@example.com}
+    }
+
 end
