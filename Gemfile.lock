@@ -215,6 +215,9 @@ GEM
       activesupport (>= 3.2)
     erubis (2.7.0)
     eventmachine (1.0.4)
+    exception_notification (4.1.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.2.2)
     eye (0.6.3)
       celluloid (~> 0.15.0)
@@ -695,6 +698,7 @@ DEPENDENCIES
   devise
   email_spec
   enumerize (>= 0.5.1)
+  exception_notification (~> 4.1.1)
   eye
   factory_girl_rails
   fakeredis
@@ -789,3 +793,6 @@ DEPENDENCIES
   tinymce-rails-langs
   uglifier
   wiselinks
+
+BUNDLED WITH
+   1.10.4

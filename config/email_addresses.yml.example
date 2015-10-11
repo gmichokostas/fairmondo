@@ -36,3 +36,8 @@ Addresses:
       other: "test27@example.com"
       trust_community: "test28@example.com"
     become_donation_partner: "test29@example.com"
+
+  ExceptionNotification:
+    sender_address: "test30@example.com"
+    exception_recipients:
+    - "test31@example.com"

@@ -99,9 +99,9 @@ Fairmondo::Application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
     email: {
-      email_prefix: "[EXCEPTION NOTIFICATION] ",
-      sender_address: %{"Exception notifier" <notifier@example.com>},
-      exception_recipients: %w{exceptions@example.com}
+      email_prefix: "[STAGING] ",
+      sender_address: %{"Exception notifier" <notifier@fairmondo.de>},
+      exception_recipients: %w{exceptions@fairmondo.de}
     }
 
 end
