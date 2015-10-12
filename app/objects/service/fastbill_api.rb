@@ -44,10 +44,15 @@ class FastbillAPI
   def fastbill_create_customer
     unless @seller.fastbill_id
       User.observers.disable :user_observer do
-        attributes = attributes_for(@seller)
-        attributes[:customer_number] = @seller.id
-        customer = Fastbill::Automatic::Customer.create(attributes)
-        @seller.update_attribute :fastbill_id, customer.customer_id
+        begin
+          attributes = attributes_for(@seller)
+          attributes[:customer_number] = @seller.id
+          customer = Fastbill::Automatic::Customer.create(attributes)
+          @seller.update_attribute :fastbill_id, customer.customer_id
+          Rails.logger.fastbill.info { "Fastbill profile created" }
+        rescue => e
+          Rails.logger.fastbill.error { "#{e.message} #{e.backtrace.join("\n")}" }
+        end
       end
     end
   end
@@ -95,16 +100,21 @@ class FastbillAPI
   [:fee, :fair, :discount, :refund_fee, :refund_fair].each do |type|
     define_method "fastbill_#{ type }" do
       unless @bt.send("billed_for_#{ type }")
-        Fastbill::Automatic::Subscription.setusagedata(
-          subscription_id: @seller.fastbill_subscription_id,
-          article_number: article_number_for(type),
-          quantity: quantity_for(type),
-          unit_price: unit_price_for(type),
-          description: description_for(type),
-          usage_date: @bt.sold_at.strftime('%Y-%m-%d %H:%M:%S')
-        )
-        @bt.send("billed_for_#{ type }=", true)
-        @bt.save
+        begin
+          Fastbill::Automatic::Subscription.setusagedata(
+            subscription_id: @seller.fastbill_subscription_id,
+            article_number: article_number_for(type),
+            quantity: quantity_for(type),
+            unit_price: unit_price_for(type),
+            description: description_for(type),
+            usage_date: @bt.sold_at.strftime('%Y-%m-%d %H:%M:%S')
+          )
+          @bt.send("billed_for_#{ type }=", true)
+          @bt.save
+          Rails.logger.fastbill.info { "Fastbill usage data sent" }
+        rescue => e
+          Rails.logger.fastbill.error { "#{e.message} #{e.backtrace.join("\n")}" }
+        end
       end
     end
   end
